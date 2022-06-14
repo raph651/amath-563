@@ -43,7 +43,7 @@ def main(params):
     #    print('require grad: ',i.requires_grad)
     #    break
 
-    data = NSTdata(params.sp, params.ip, params.ss, params.cs)
+    data = NSTdata(params.sp, params.cp, params.ss, params.cs)
     styler_inp, img_inp = data.build()
 
     optim_arg = {k: v for k, v in optim_param.items() if k != 'optim'}

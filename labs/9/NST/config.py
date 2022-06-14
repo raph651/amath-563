@@ -7,8 +7,9 @@ _parser_train = argparse.ArgumentParser(description='Configuration for NST')
 
 #general
 _parser_train.add_argument('--sp', type=str, default='./images/styler/starry_night.jpg',
-                           help='style path')
-_parser_train.add_argument('--ip', type=str, default='./images/tubingen.jpg', help='image path')
+                           help='styler image path')
+_parser_train.add_argument('--cp', type=str, default='./images/tubingen.jpg', 
+                           help='content image path')
 _parser_train.add_argument('--cw', type=float, default=5e-2, help='content weight')
 _parser_train.add_argument('--sw', type=float,  nargs='+', default = [1000,1000,1000,1000],
                            help='style weight in each layer')
@@ -33,7 +34,7 @@ def prep_args(params):
     Args:
         params (argparse.Namespace): The command-line arguments.
     """
-    if not os.path.isfile(params.ip):
+    if not os.path.isfile(params.cp):
         raise ValueError('image file doesnt exist')
     if not os.path.isfile(params.sp):
         raise ValueError('styler file doesnt exist')
